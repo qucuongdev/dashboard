@@ -1,0 +1,162 @@
+.dashboardPage {
+  padding: 0;
+  background-color: #f8fafc;
+
+  // Custom tabs styling
+  :global(.ant-tabs) {
+    margin: 0 24px;
+    margin-top: 16px;
+
+    .ant-tabs-nav {
+      background: white;
+      border-radius: 12px 12px 0 0;
+      margin: 0;
+      padding: 0 24px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      border-bottom: 1px solid #e2e8f0;
+
+      &::before {
+        display: none;
+      }
+    }
+
+    .ant-tabs-tab {
+      margin: 0 8px 0 0;
+      padding: 16px 20px;
+      color: #64748b;
+      font-weight: 500;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 8px 8px 0 0;
+      position: relative;
+
+      &:hover {
+        color: #1e40af;
+        background: rgba(30, 64, 175, 0.04);
+      }
+
+      &.ant-tabs-tab-active {
+        background: linear-gradient(
+          135deg,
+          rgba(30, 64, 175, 0.1) 0%,
+          rgba(30, 58, 138, 0.05) 100%
+        );
+        color: #1e40af;
+        font-weight: 600;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 3px;
+          background: linear-gradient(90deg, #1e40af, #2563eb);
+          border-radius: 2px 2px 0 0;
+        }
+      }
+    }
+
+    .ant-tabs-content-holder {
+      background: transparent;
+    }
+  }
+}
+
+// Scorecard section styling
+.scorecardSection {
+  :global(.ant-row) {
+    align-items: stretch; /* Ensure equal height columns */
+  }
+
+  :global(.ant-col) {
+    display: flex; /* Make columns flex containers */
+
+    & > div {
+      flex: 1; /* Make wrapper div fill the column */
+      display: flex; /* Make wrapper flex container */
+    }
+  }
+
+  // Responsive gutter adjustments
+  @media (max-width: 768px) {
+    :global(.ant-row) {
+      margin: 0 -12px !important;
+
+      :global(.ant-col) {
+        padding: 0 12px !important;
+        margin-bottom: 16px;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    :global(.ant-row) {
+      margin: 0 -8px !important;
+
+      :global(.ant-col) {
+        padding: 0 8px !important;
+        margin-bottom: 12px;
+      }
+    }
+  }
+}
+
+.sharedLegendContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+.legendDonut {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.legendColor {
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .dashboardPage {
+    :global(.ant-tabs) {
+      margin: 0 16px;
+      margin-top: 16px;
+
+      .ant-tabs-nav {
+        padding: 0 16px;
+      }
+
+      .ant-tabs-tab {
+        padding: 12px 16px;
+        margin: 0 4px 0 0;
+      }
+    }
+  }
+
+  .legendDonut {
+    gap: 16px;
+  }
+
+  .legendItem {
+    font-size: 12px;
+  }
+
+  .legendColor {
+    width: 10px;
+    height: 10px;
+  }
+}

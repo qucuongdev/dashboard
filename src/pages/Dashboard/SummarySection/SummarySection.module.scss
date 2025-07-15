@@ -1,0 +1,360 @@
+.summaryContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
+
+  @media (max-width: 768px) {
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  @media (max-width: 480px) {
+    gap: 24px;
+    margin-top: 16px;
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  h2 {
+    font-size: 24px;
+    font-weight: var(--font-weight-semibold);
+    color: #000;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 20px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    h2 {
+      font-size: 18px;
+    }
+  }
+}
+
+.filters {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+
+  @media (max-width: 992px) {
+    gap: 8px;
+  }
+
+  @media (max-width: 580px) {
+    gap: 8px;
+    justify-content: flex-start; // Trên mobile thì về bên trái cho dễ nhìn
+  }
+}
+
+.filters :global(.ant-select) {
+  min-width: 180px;
+
+  @media (max-width: 992px) {
+    min-width: 160px;
+  }
+
+  @media (max-width: 768px) {
+    min-width: 140px;
+  }
+
+  @media (max-width: 580px) {
+    min-width: 120px;
+  }
+}
+
+.selectBox {
+  :global(.ant-select-selector) {
+    border-radius: 4px !important;
+    border: 1px solid #d6d6d6 !important;
+    background-color: #fcfcfc !important;
+    font-family: 'Inter', sans-serif;
+    font-size: var(--font-sm);
+    font-weight: var(--font-weight-normal);
+    color: #616161;
+    height: 32px !important;
+    display: flex;
+    align-items: center;
+    padding: 0 8px !important;
+  }
+
+  :global(.ant-select-arrow) {
+    color: #616161;
+    font-size: 12px;
+  }
+
+  :global(.ant-select-selection-item) {
+    line-height: 34px !important;
+  }
+
+  @media (max-width: 640px) {
+    width: 100% !important;
+    min-width: unset;
+
+    :global(.ant-select-selector) {
+      height: 36px !important;
+    }
+
+    :global(.ant-select-selection-item) {
+      line-height: 38px !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    :global(.ant-select-selector) {
+      height: 38px !important;
+      font-size: 14px;
+    }
+
+    :global(.ant-select-selection-item) {
+      line-height: 40px !important;
+    }
+  }
+}
+
+.filterButton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  background-color: #fcfcfc;
+  border: 1px solid #d6d6d6;
+  border-radius: 4px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #616161;
+  cursor: pointer;
+
+  img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.chartsGrid {
+  display: grid;
+  gap: 16px;
+  margin-top: 16px;
+
+  /* Default fallback - same as main donut charts */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+  /* Dynamic grid based on number of items */
+  &[data-count='1'] {
+    grid-template-columns: minmax(280px, 350px);
+    justify-content: start;
+  }
+
+  &[data-count='2'] {
+    grid-template-columns: repeat(2, minmax(280px, 350px));
+    justify-content: start;
+  }
+
+  &[data-count='3'] {
+    grid-template-columns: repeat(3, minmax(280px, 350px));
+    justify-content: start;
+  }
+
+  /* 4 or more items - use same as main donut charts */
+  &[data-count='4'],
+  &[data-count='5'],
+  &[data-count='6'],
+  &[data-count='7'] {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+.donutChartWrapper {
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%; /* Ensure all cards have same height */
+  min-height: 450px; /* Minimum height for consistency */
+
+  /* Fix donut chart size */
+  :global(.card) {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .chartContainer {
+      width: 200px !important;
+      height: 200px !important;
+      margin: 0 auto;
+      flex-shrink: 0; /* Prevent chart from shrinking */
+    }
+  }
+
+  @media (max-width: 1024px) {
+    min-height: 420px;
+
+    :global(.card) {
+      .chartContainer {
+        width: 180px !important;
+        height: 180px !important;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 16px;
+    gap: 16px;
+    max-width: 500px;
+    margin: 0 auto;
+    min-height: 400px;
+
+    :global(.card) {
+      .chartContainer {
+        width: 170px !important;
+        height: 170px !important;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 12px;
+    gap: 12px;
+    min-height: 380px;
+
+    :global(.card) {
+      .chartContainer {
+        width: 160px !important;
+        height: 160px !important;
+      }
+    }
+  }
+}
+
+.donutLegend {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-grow: 1; /* Take remaining space */
+  justify-content: flex-start; /* Align legends to top */
+  min-height: 120px; /* Minimum height for legend consistency */
+
+  @media (max-width: 768px) {
+    min-height: 100px;
+  }
+
+  @media (max-width: 480px) {
+    gap: 6px;
+    min-height: 90px;
+  }
+}
+
+.legendRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 0;
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  @media (max-width: 480px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+    gap: 4px;
+  }
+}
+
+.legendInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+
+  @media (max-width: 480px) {
+    gap: 6px;
+    min-width: 0;
+    flex-shrink: 1;
+  }
+}
+
+.legendColor {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.legendLabel {
+  font-size: 12px;
+  font-weight: 400;
+  color: #4a5568;
+  flex: 1;
+
+  @media (max-width: 480px) {
+    font-size: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.legendPercentage {
+  font-size: 12px;
+  font-weight: 500;
+  color: #2d3748;
+  min-width: 30px;
+  text-align: right;
+
+  @media (max-width: 480px) {
+    font-size: 10px;
+    min-width: 30px;
+    flex-shrink: 0;
+  }
+}
+
+.legendNumbers {
+  display: flex;
+  gap: 8px;
+
+  span {
+    font-size: 12px;
+    font-weight: 400;
+    color: #4a5568;
+    min-width: 40px;
+    text-align: right;
+  }
+
+  @media (max-width: 768px) {
+    gap: 12px;
+
+    span {
+      min-width: 45px;
+      font-size: 11px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    gap: 4px;
+    flex-shrink: 0;
+
+    span {
+      min-width: 35px;
+      font-size: 10px;
+      text-align: center;
+      padding: 1px 2px;
+    }
+  }
+}

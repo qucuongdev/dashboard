@@ -1,0 +1,35 @@
+.mainLayout {
+  height: 100vh;
+  overflow: hidden;
+
+  &.mobileLayout {
+    @media (max-width: 768px) {
+      // On mobile, make sure content takes full width
+      .content {
+        margin-left: 0 !important;
+      }
+    }
+  }
+}
+
+.content {
+  padding: 1rem;
+  background-color: #f8fafc;
+  height: calc(100vh - 5rem); // Trừ đi chiều cao header 5rem (80px)
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  @media (max-width: 768px) {
+    // Full width on mobile
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+.contentShifted {
+  @media (max-width: 768px) {
+    // When sidebar is open on mobile, shift content
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+  }
+}

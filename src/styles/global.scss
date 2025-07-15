@@ -1,0 +1,333 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+// Typography System với rem units
+:root {
+  // Base font size (16px = 1rem)
+  font-size: 16px; // Đảm bảo 1rem = 16px
+  
+  // Typography scale với rem - heading giảm dần
+  --font-xs: 0.75rem;    // 12px - Captions, small labels
+  --font-sm: 0.875rem;   // 14px - Small text
+  --font-base: 1rem;     // 16px - Body text default
+  --font-lg: 1.125rem;   // 18px - Large body text
+  --font-xl: 1.25rem;    // 20px - Small headings (h6)
+  --font-2xl: 1.5rem;    // 24px - Medium headings (h5)
+  --font-3xl: 1.75rem;   // 28px - Large headings (h4)
+  --font-4xl: 2rem;      // 32px - Larger headings (h3)
+  --font-5xl: 2.25rem;   // 36px - Large headings (h2)
+  --font-6xl: 2.5rem;    // 40px - Page titles (h1)
+  
+  // Font weights - body 400-500, heading 600-700
+  --font-weight-light: 300;
+  --font-weight-normal: 400;    // Body default
+  --font-weight-medium: 500;    // Body emphasis
+  --font-weight-semibold: 600;  // Heading default
+  --font-weight-bold: 700;      // Heading emphasis
+  --font-weight-extrabold: 800;
+  
+  // Line heights - dễ đọc
+  --line-height-tight: 1.25;    // Headings
+  --line-height-snug: 1.375;    // Large text
+  --line-height-normal: 1.5;    // Body text
+  --line-height-relaxed: 1.625; // Reading text
+  --line-height-loose: 2;       // Loose spacing
+  
+  // Icon sizes với rem
+  --icon-xs: 0.75rem;   // 12px
+  --icon-sm: 1rem;      // 16px  
+  --icon-base: 1.25rem; // 20px
+  --icon-lg: 1.5rem;    // 24px
+  --icon-xl: 2rem;      // 32px
+  --icon-2xl: 3rem;     // 48px
+  
+  // Mobile responsive - giảm heading size
+  @media (max-width: 768px) {
+    --font-6xl: 2rem;      // 32px
+    --font-5xl: 1.875rem;  // 30px
+    --font-4xl: 1.75rem;   // 28px
+    --font-3xl: 1.5rem;    // 24px
+    --icon-2xl: 2.5rem;    // 40px
+  }
+}
+
+// Reset styles
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: var(--font-base);      // 16px minimum
+  font-weight: var(--font-weight-normal); // 400
+  line-height: var(--line-height-normal);  // 1.5
+  color: #334155;
+}
+
+// Headings với font-weight 600-700 và line-height phù hợp
+h1, .h1 {
+  font-size: var(--font-6xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  margin: 0 0 1rem 0;
+}
+
+h2, .h2 {
+  font-size: var(--font-5xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  margin: 0 0 0.875rem 0;
+}
+
+h3, .h3 {
+  font-size: var(--font-4xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  margin: 0 0 0.75rem 0;
+}
+
+h4, .h4 {
+  font-size: var(--font-3xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-snug);
+  margin: 0 0 0.625rem 0;
+}
+
+h5, .h5 {
+  font-size: var(--font-2xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-snug);
+  margin: 0 0 0.5rem 0;
+}
+
+h6, .h6 {
+  font-size: var(--font-xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-snug);
+  margin: 0 0 0.5rem 0;
+}
+
+// Body text
+p {
+  font-size: var(--font-base);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-relaxed);
+  margin: 0 0 1rem 0;
+}
+
+// Small text
+small, .small {
+  font-size: var(--font-sm);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+}
+
+// Code
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+  font-size: var(--font-sm);
+  line-height: var(--line-height-normal);
+}
+
+// Typography utility classes
+.text-xs { 
+  font-size: var(--font-xs); 
+  line-height: var(--line-height-normal);
+}
+.text-sm { 
+  font-size: var(--font-sm); 
+  line-height: var(--line-height-normal);
+}
+.text-base { 
+  font-size: var(--font-base); 
+  line-height: var(--line-height-normal);
+}
+.text-lg { 
+  font-size: var(--font-lg); 
+  line-height: var(--line-height-snug);
+}
+.text-xl { 
+  font-size: var(--font-xl); 
+  line-height: var(--line-height-snug);
+}
+.text-2xl { 
+  font-size: var(--font-2xl); 
+  line-height: var(--line-height-tight);
+}
+.text-3xl { 
+  font-size: var(--font-3xl); 
+  line-height: var(--line-height-tight);
+}
+.text-4xl { 
+  font-size: var(--font-4xl); 
+  line-height: var(--line-height-tight);
+}
+.text-5xl { 
+  font-size: var(--font-5xl); 
+  line-height: var(--line-height-tight);
+}
+.text-6xl { 
+  font-size: var(--font-6xl); 
+  line-height: var(--line-height-tight);
+}
+
+// Font weight utilities
+.font-light { font-weight: var(--font-weight-light); }
+.font-normal { font-weight: var(--font-weight-normal); }
+.font-medium { font-weight: var(--font-weight-medium); }
+.font-semibold { font-weight: var(--font-weight-semibold); }
+.font-bold { font-weight: var(--font-weight-bold); }
+.font-extrabold { font-weight: var(--font-weight-extrabold); }
+
+// Line height utilities
+.leading-tight { line-height: var(--line-height-tight); }
+.leading-snug { line-height: var(--line-height-snug); }
+.leading-normal { line-height: var(--line-height-normal); }
+.leading-relaxed { line-height: var(--line-height-relaxed); }
+.leading-loose { line-height: var(--line-height-loose); }
