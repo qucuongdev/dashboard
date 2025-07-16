@@ -102,8 +102,15 @@ const SummarySection: React.FC = () => {
 
       {/* All Donut Charts */}
       <div
-        className={styles.chartsGrid}
-        data-count={processedChartsData.length}
+        // className={styles.chartsGrid}
+
+        style={{
+          marginTop: 24,
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gap: '16px',
+        }}
+        // data-count={processedChartsData.length}
       >
         {processedChartsData.map((chart) => (
           <div key={chart.title} className={styles.donutChartWrapper}>

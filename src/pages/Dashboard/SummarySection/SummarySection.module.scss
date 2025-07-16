@@ -143,38 +143,19 @@
 
 .chartsGrid {
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 16px;
   margin-top: 16px;
 
-  /* Default fallback - same as main donut charts */
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-
-  /* Dynamic grid based on number of items */
-  &[data-count='1'] {
-    grid-template-columns: minmax(280px, 350px);
-    justify-content: start;
-  }
-
-  &[data-count='2'] {
-    grid-template-columns: repeat(2, minmax(280px, 350px));
-    justify-content: start;
-  }
-
-  &[data-count='3'] {
-    grid-template-columns: repeat(3, minmax(280px, 350px));
-    justify-content: start;
-  }
-
-  /* 4 or more items - use same as main donut charts */
-  &[data-count='4'],
-  &[data-count='5'],
-  &[data-count='6'],
-  &[data-count='7'] {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
 }
 
 .donutChartWrapper {
+  min-width: 0;
+  width: 100%;
   background-color: #ffffff;
   border-radius: 8px;
   border: 1px solid #e2e8f0;
@@ -182,61 +163,9 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  height: 100%; /* Ensure all cards have same height */
-  min-height: 450px; /* Minimum height for consistency */
-
-  /* Fix donut chart size */
-  :global(.card) {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-
-    .chartContainer {
-      width: 200px !important;
-      height: 200px !important;
-      margin: 0 auto;
-      flex-shrink: 0; /* Prevent chart from shrinking */
-    }
-  }
-
-  @media (max-width: 1024px) {
-    min-height: 420px;
-
-    :global(.card) {
-      .chartContainer {
-        width: 180px !important;
-        height: 180px !important;
-      }
-    }
-  }
-
-  @media (max-width: 768px) {
-    padding: 16px;
-    gap: 16px;
-    max-width: 500px;
-    margin: 0 auto;
-    min-height: 400px;
-
-    :global(.card) {
-      .chartContainer {
-        width: 170px !important;
-        height: 170px !important;
-      }
-    }
-  }
-
-  @media (max-width: 480px) {
-    padding: 12px;
-    gap: 12px;
-    min-height: 380px;
-
-    :global(.card) {
-      .chartContainer {
-        width: 160px !important;
-        height: 160px !important;
-      }
-    }
-  }
+  height: 100%;
+  min-height: 350px;
+  box-sizing: border-box;
 }
 
 .donutLegend {

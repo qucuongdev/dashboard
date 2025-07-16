@@ -365,10 +365,10 @@ export const dashboardStats: DashboardStats = {
         other: createStatusData(20, 25000000, 1.2),
       },
     },
-    // Bộ Tư lệnh
+    // Bộ
     {
       organizationLevel: 'command',
-      name: 'Bộ Tư lệnh Quân chủng',
+      name: 'Bộ Quân chủng',
       statuses: {
         total: createStatusData(8200, 25800000000, 3.2),
         in_system: createStatusData(6900, 21700000000, 2.8),
@@ -381,10 +381,10 @@ export const dashboardStats: DashboardStats = {
         other: createStatusData(35, 110000000, 8.2),
       },
     },
-    // Ban Chỉ Huy
+    // BC
     {
       organizationLevel: 'division',
-      name: 'Ban Chỉ Huy các Binh chủng',
+      name: 'BC các Binh chủng',
       statuses: {
         total: createStatusData(4800, 14200000000, 1.8),
         in_system: createStatusData(4100, 12100000000, 1.2),
@@ -423,7 +423,7 @@ export const dashboardStats: DashboardStats = {
 
 // Chart Data
 export const organizationChart: ChartData = {
-  labels: ['Bộ Tư lệnh', 'Ban Chỉ Huy', 'Đơn vị trực thuộc'],
+  labels: ['Bộ', 'BC', 'Đơn vị trực thuộc'],
   datasets: [
     {
       label: 'Số lượng trang bị',
@@ -463,7 +463,7 @@ export const statusDistributionChart: ChartData = {
 };
 
 export const valueByOrganizationChart: ChartData = {
-  labels: ['Bộ Tư lệnh', 'Ban Chỉ Huy', 'Đơn vị trực thuộc'],
+  labels: ['Bộ', 'BC', 'Đơn vị trực thuộc'],
   datasets: [
     {
       label: 'Giá trị (tỷ VNĐ)',

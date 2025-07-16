@@ -286,8 +286,8 @@ export interface Notification {
 // Mapping constants for Vietnamese labels
 export const ORGANIZATION_LABELS: Record<OrganizationLevel, string> = {
   total: 'Tổng',
-  command: 'Bộ Tư lệnh',
-  division: 'Ban Chỉ Huy',
+  command: 'Bộ',
+  division: 'BC',
   unit: 'Đơn vị',
 };
 
@@ -295,10 +295,10 @@ export const STATUS_LABELS: Record<EquipmentStatus, string> = {
   total: 'Tổng hợp',
   in_system: 'Trên hệ thống',
   in_storage: 'Trong kho',
-  technical_support: 'Bảo đảm kỹ thuật',
+  technical_support: 'BDKTT',
   repair: 'Sửa chữa',
   national_reserve: 'Dự trữ quốc gia',
-  ready_combat: 'Sẵn sàng chiến đấu',
+  ready_combat: 'SSCD',
   pending_disposal: 'Chờ thanh lý',
   other: 'Khác',
 };
