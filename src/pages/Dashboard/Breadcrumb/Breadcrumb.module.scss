@@ -32,7 +32,7 @@
 .description {
   font-size: 14px;
   color: #64748b;
-  margin: 4px 0 0 0;
+  margin: 10px 0 0 0;
   font-weight: 500;
 }
 
@@ -42,14 +42,21 @@
   gap: 12px;
 }
 
+// Desktop layout for selectRow
+.selectRow {
+  display: flex; // Horizontal layout cho desktop
+  align-items: center;
+  gap: 12px;
+}
+
 // Responsive design
 @media (max-width: 768px) {
   .breadcrumbContainer {
     margin: 0 16px;
-    padding: 16px;
+    // padding: 16px;
     flex-direction: column;
     align-items: flex-start;
-    gap: 12px;
+    gap: 16px;
   }
 
   .pageTitle {
@@ -58,5 +65,81 @@
 
   .description {
     font-size: 13px;
+  }
+
+  .actions {
+    width: 100%;
+    flex-direction: column;
+    gap: 12px;
+
+    // Wrapper cho 2 dropdown đầu
+    .selectRow {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important; // 2 columns equal width
+      gap: 8px !important;
+      width: 100% !important;
+
+      // Target Ant Design select specifically
+      :global(.ant-select) {
+        width: 100% !important;
+      }
+
+      :global(.ant-select-selector) {
+        width: 100% !important;
+      }
+    }
+
+    // Date picker full width
+    :global(.ant-picker) {
+      width: 100% !important;
+    }
+  }
+}
+
+// Fix date picker modal size on mobile
+@media (max-width: 768px) {
+  // Override global Ant Design date picker dropdown
+  :global(.ant-picker-dropdown) {
+    max-width: calc(100vw - 32px) !important;
+    margin: 0 16px !important;
+  }
+
+  :global(.ant-picker-panel-container) {
+    max-width: 100% !important;
+  }
+
+  :global(.ant-picker-panels) {
+    max-width: 100% !important;
+    flex-direction: column !important;
+  }
+
+  :global(.ant-picker-panel) {
+    max-width: 100% !important;
+    min-width: 280px !important;
+  }
+
+  :global(.ant-picker-header) {
+    padding: 0 8px !important;
+  }
+
+  :global(.ant-picker-content) {
+    width: 100% !important;
+  }
+}
+
+// New class for inline CSS replacement
+.organizationSelect {
+  width: 140px;
+
+  @media (max-width: 768px) {
+    width: 100%; // Sẽ được flex: 1 override trong selectRow
+  }
+}
+
+.roleSelect {
+  width: 180px;
+
+  @media (max-width: 768px) {
+    width: 100%; // Sẽ được flex: 1 override trong selectRow
   }
 }

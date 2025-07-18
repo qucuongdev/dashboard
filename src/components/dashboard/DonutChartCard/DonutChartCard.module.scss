@@ -22,10 +22,10 @@
 }
 
 .title {
-  font-size: var(--font-base);
-  font-weight: var(--font-weight-semibold);
+  font-size: 16px;
+  font-weight: 600;
   color: #172733;
-  line-height: var(--line-height-tight);
+  line-height: 1.25;
   margin: 0;
 }
 
@@ -43,16 +43,17 @@
 }
 
 .selectBox {
+  min-width: 90px;
   :global(.ant-select-selector) {
     border-radius: 0.25rem !important;
     border: 1px solid #d6d6d6 !important;
     background-color: #fcfcfc !important;
-    font-size: var(--font-xs);
-    font-weight: var(--font-weight-medium);
+    font-size: 12px;
+    font-weight: 500;
     color: #616161;
     height: 1.75rem !important;
     padding: 0 0.5rem !important;
-    line-height: var(--line-height-normal);
+    line-height: 1.5;
   }
   :global(.ant-select-arrow) {
     font-size: 0.625rem;
@@ -87,18 +88,18 @@
 }
 
 .chartTotalValue {
-  font-size: var(--font-xl);
-  font-weight: var(--font-weight-semibold);
+  font-size: 20px;
+  font-weight: 600;
   color: #172733;
-  line-height: var(--line-height-tight);
+  line-height: 1.25;
   margin: 0;
 }
 
 .chartTotalDescription {
-  font-size: var(--font-xs);
-  font-weight: var(--font-weight-normal);
+  font-size: 12px;
+  font-weight: 400;
   color: #6e7880;
-  line-height: var(--line-height-normal);
+  line-height: 1.5;
   margin: 0;
 }
 

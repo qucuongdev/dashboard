@@ -1,18 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { Spin } from 'antd';
 import styles from './SummaryTable.module.scss';
+import UpdatingIndicator from '../../../components/common/UpdatingIndicator';
 import { api } from '../../../services/api';
 import type { SummaryTableData, OrganizationLevel } from '../../../types';
 
 interface SummaryTableProps {
   selectedOrganization: OrganizationLevel;
+  disableUpdatingIndicator?: boolean;
 }
 
 const SummaryTable: React.FC<SummaryTableProps> = ({
   selectedOrganization,
+  disableUpdatingIndicator = false,
 }) => {
   const [summaryData, setSummaryData] = useState<SummaryTableData | null>(null);
   const [loading, setLoading] = useState(true);
+  const [updating, setUpdating] = useState(false);
+  const [isInitialLoad, setIsInitialLoad] = useState(true);
 
   // Format number with commas
   const formatNumber = (num: number): string => {
@@ -23,7 +28,12 @@ const SummaryTable: React.FC<SummaryTableProps> = ({
   useEffect(() => {
     const loadSummaryData = async () => {
       try {
-        setLoading(true);
+        if (isInitialLoad) {
+          setLoading(true);
+        } else {
+          setUpdating(true);
+        }
+
         const response =
           await api.summaryTable.getSummaryTable(selectedOrganization);
         if (response.success) {
@@ -32,19 +42,24 @@ const SummaryTable: React.FC<SummaryTableProps> = ({
       } catch (error) {
         console.error('Failed to load summary table data:', error);
       } finally {
-        setLoading(false);
+        if (isInitialLoad) {
+          setLoading(false);
+          setIsInitialLoad(false);
+        } else {
+          setUpdating(false);
+        }
       }
     };
 
     loadSummaryData();
-  }, [selectedOrganization]);
+  }, [selectedOrganization, isInitialLoad]);
 
   if (loading) {
     return (
       <div className={styles.tableContainer}>
-        <div style={{ textAlign: 'center', padding: '50px' }}>
+        <div className={styles.loadingContainer}>
           <Spin size="large" />
-          <p style={{ marginTop: 16 }}>Đang tải dữ liệu...</p>
+          <p className={styles.loadingText}>Đang tải dữ liệu...</p>
         </div>
       </div>
     );
@@ -53,7 +68,7 @@ const SummaryTable: React.FC<SummaryTableProps> = ({
   if (!summaryData) {
     return (
       <div className={styles.tableContainer}>
-        <div style={{ textAlign: 'center', padding: '50px' }}>
+        <div className={styles.noDataContainer}>
           <p>Không có dữ liệu</p>
         </div>
       </div>
@@ -104,7 +119,20 @@ const SummaryTable: React.FC<SummaryTableProps> = ({
   ];
   return (
     <div className={styles.tableContainer}>
-      <div className={styles.tableWrapper}>
+      {/* Updating indicator for organization changes */}
+      {!disableUpdatingIndicator && (
+        <UpdatingIndicator
+          visible={updating}
+          text="Đang cập nhật bảng tổng hợp..."
+          position="top-right"
+          theme="success"
+          size="small"
+        />
+      )}
+
+      <div
+        className={`${styles.tableWrapper} ${updating ? styles.updating : ''}`}
+      >
         <table className={styles.summaryTable}>
           <thead>
             <tr>
@@ -119,18 +147,39 @@ const SummaryTable: React.FC<SummaryTableProps> = ({
             </tr>
           </thead>
           <tbody>
-            {tableData.map((row) => (
-              <tr key={row.state}>
-                <td>{row.state}</td>
-                <td>{row.tb_nhom1}</td>
-                <td>{row.tb_nhom2}</td>
-                <td>{row.vt_nhom1}</td>
-                <td>{row.vt_nhom2}</td>
-                <td>{row.dtqg}</td>
-                <td>{row.sscd}</td>
-                <td>{row.vat_chat}</td>
-              </tr>
-            ))}
+            {tableData.map((row, index) => {
+              // Determine row class based on state for text color
+              let rowClass = '';
+              switch (row.state) {
+                case 'TỒN ĐẦU KỲ':
+                  rowClass = styles.beginningInventoryRow;
+                  break;
+                case 'TĂNG':
+                  rowClass = styles.increaseRow;
+                  break;
+                case 'GIẢM':
+                  rowClass = styles.decreaseRow;
+                  break;
+                case 'TỒN HIỆN TẠI':
+                  rowClass = styles.currentInventoryRow;
+                  break;
+                default:
+                  rowClass = '';
+              }
+
+              return (
+                <tr key={row.state} className={rowClass}>
+                  <td>{row.state}</td>
+                  <td>{row.tb_nhom1}</td>
+                  <td>{row.tb_nhom2}</td>
+                  <td>{row.vt_nhom1}</td>
+                  <td>{row.vt_nhom2}</td>
+                  <td>{row.dtqg}</td>
+                  <td>{row.sscd}</td>
+                  <td>{row.vat_chat}</td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>

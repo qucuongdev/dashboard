@@ -31,12 +31,15 @@
   border-radius: 0px 2px 2px 0px;
   overflow: hidden;
   position: relative;
+  background-color: #ea6565;
 }
 
 .barFill {
   height: 100%;
   transition: width 0.3s ease;
   border-radius: 0px 2px 2px 0px;
+  width: var(--bar-percentage, 0%);
+  background-color: var(--bar-fill-color, #007d6e);
 }
 
 .value {

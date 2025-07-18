@@ -622,8 +622,8 @@ const createWarehouseOperationData = (
           title: 'Mệnh lệnh chờ viết lệnh',
           total: Math.floor(12 * multiplier).toString(),
           details: [
-            { label: 'Xuất kho', value: Math.floor(4 * multiplier) },
             { label: 'Nhập kho', value: Math.floor(5 * multiplier) },
+            { label: 'Xuất kho', value: Math.floor(4 * multiplier) },
             { label: 'Điều chuyển', value: Math.floor(3 * multiplier) },
           ],
         },
@@ -631,8 +631,8 @@ const createWarehouseOperationData = (
           title: 'Mệnh lệnh đã viết lệnh',
           total: Math.floor(40 * multiplier).toString(),
           details: [
-            { label: 'Xuất kho', value: Math.floor(15 * multiplier) },
             { label: 'Nhập kho', value: Math.floor(18 * multiplier) },
+            { label: 'Xuất kho', value: Math.floor(15 * multiplier) },
             { label: 'Điều chuyển', value: Math.floor(7 * multiplier) },
           ],
         },
@@ -640,8 +640,8 @@ const createWarehouseOperationData = (
           title: 'Lệnh đã bổ sung',
           total: Math.floor(34 * multiplier).toString(),
           details: [
-            { label: 'Xuất kho', value: Math.floor(12 * multiplier) },
             { label: 'Nhập kho', value: Math.floor(14 * multiplier) },
+            { label: 'Xuất kho', value: Math.floor(12 * multiplier) },
             { label: 'Điều chuyển', value: Math.floor(8 * multiplier) },
           ],
         },
@@ -649,8 +649,8 @@ const createWarehouseOperationData = (
           title: 'Lệnh chưa thực hiện xong',
           total: Math.floor(5 * multiplier).toString(),
           details: [
-            { label: 'Xuất kho', value: Math.floor(2 * multiplier) },
             { label: 'Nhập kho', value: Math.floor(2 * multiplier) },
+            { label: 'Xuất kho', value: Math.floor(2 * multiplier) },
             { label: 'Điều chuyển', value: Math.floor(1 * multiplier) },
           ],
         },
@@ -658,8 +658,8 @@ const createWarehouseOperationData = (
           title: 'Lệnh quá thời hạn',
           total: Math.floor(20 * multiplier).toString(),
           details: [
-            { label: 'Xuất kho', value: Math.floor(8 * multiplier) },
             { label: 'Nhập kho', value: Math.floor(7 * multiplier) },
+            { label: 'Xuất kho', value: Math.floor(8 * multiplier) },
             { label: 'Điều chuyển', value: Math.floor(5 * multiplier) },
           ],
         },
@@ -667,8 +667,8 @@ const createWarehouseOperationData = (
           title: 'Lệnh yêu cầu xử lý',
           total: `${Math.floor(40 * multiplier)}/${Math.floor(44 * multiplier)}`,
           details: [
-            { label: 'Xuất kho', value: Math.floor(15 * multiplier) },
             { label: 'Nhập kho', value: Math.floor(12 * multiplier) },
+            { label: 'Xuất kho', value: Math.floor(15 * multiplier) },
             { label: 'Điều chuyển', value: Math.floor(13 * multiplier) },
           ],
         },
@@ -682,8 +682,8 @@ const createWarehouseOperationData = (
           title: 'Kế hoạch chờ viết lệnh',
           total: Math.floor(12 * multiplier).toString(),
           details: [
-            { label: 'Xuất kho', value: Math.floor(3 * multiplier) },
             { label: 'Nhập kho', value: Math.floor(6 * multiplier) },
+            { label: 'Xuất kho', value: Math.floor(3 * multiplier) },
             { label: 'Điều chuyển', value: Math.floor(3 * multiplier) },
           ],
         },
@@ -691,8 +691,8 @@ const createWarehouseOperationData = (
           title: 'Kế hoạch đã viết lệnh',
           total: Math.floor(40 * multiplier).toString(),
           details: [
-            { label: 'Xuất kho', value: Math.floor(16 * multiplier) },
             { label: 'Nhập kho', value: Math.floor(15 * multiplier) },
+            { label: 'Xuất kho', value: Math.floor(16 * multiplier) },
             { label: 'Điều chuyển', value: Math.floor(9 * multiplier) },
           ],
         },
@@ -700,8 +700,8 @@ const createWarehouseOperationData = (
           title: 'Lệnh đã thực hiện xong',
           total: Math.floor(34 * multiplier).toString(),
           details: [
-            { label: 'Xuất kho', value: Math.floor(13 * multiplier) },
             { label: 'Nhập kho', value: Math.floor(12 * multiplier) },
+            { label: 'Xuất kho', value: Math.floor(13 * multiplier) },
             { label: 'Điều chuyển', value: Math.floor(9 * multiplier) },
           ],
         },
@@ -709,8 +709,8 @@ const createWarehouseOperationData = (
           title: 'Lệnh chưa thực hiện xong',
           total: Math.floor(5 * multiplier).toString(),
           details: [
-            { label: 'Xuất kho', value: Math.floor(1 * multiplier) },
             { label: 'Nhập kho', value: Math.floor(2 * multiplier) },
+            { label: 'Xuất kho', value: Math.floor(1 * multiplier) },
             { label: 'Điều chuyển', value: Math.floor(2 * multiplier) },
           ],
         },
@@ -718,8 +718,8 @@ const createWarehouseOperationData = (
           title: 'Lệnh quá thời hạn',
           total: Math.floor(20 * multiplier).toString(),
           details: [
-            { label: 'Xuất kho', value: Math.floor(7 * multiplier) },
             { label: 'Nhập kho', value: Math.floor(8 * multiplier) },
+            { label: 'Xuất kho', value: Math.floor(7 * multiplier) },
             { label: 'Điều chuyển', value: Math.floor(5 * multiplier) },
           ],
         },
@@ -727,73 +727,73 @@ const createWarehouseOperationData = (
           title: 'Lệnh yêu cầu xử lý',
           total: `${Math.floor(40 * multiplier)}/${Math.floor(44 * multiplier)}`,
           details: [
-            { label: 'Xuất kho', value: Math.floor(16 * multiplier) },
             { label: 'Nhập kho', value: Math.floor(14 * multiplier) },
+            { label: 'Xuất kho', value: Math.floor(16 * multiplier) },
             { label: 'Điều chuyển', value: Math.floor(10 * multiplier) },
           ],
         },
       ],
     },
-    {
-      title: 'Vật chất',
-      color: '#ECC94B',
-      cards: [
-        {
-          title: 'Kế hoạch chờ viết lệnh',
-          total: Math.floor(12 * multiplier).toString(),
-          details: [
-            { label: 'Xuất kho', value: Math.floor(4 * multiplier) },
-            { label: 'Nhập kho', value: Math.floor(4 * multiplier) },
-            { label: 'Điều chuyển', value: Math.floor(4 * multiplier) },
-          ],
-        },
-        {
-          title: 'Kế hoạch đã viết lệnh',
-          total: Math.floor(40 * multiplier).toString(),
-          details: [
-            { label: 'Xuất kho', value: Math.floor(13 * multiplier) },
-            { label: 'Nhập kho', value: Math.floor(14 * multiplier) },
-            { label: 'Điều chuyển', value: Math.floor(13 * multiplier) },
-          ],
-        },
-        {
-          title: 'Lệnh đã thực hiện xong',
-          total: Math.floor(34 * multiplier).toString(),
-          details: [
-            { label: 'Xuất kho', value: Math.floor(11 * multiplier) },
-            { label: 'Nhập kho', value: Math.floor(12 * multiplier) },
-            { label: 'Điều chuyển', value: Math.floor(11 * multiplier) },
-          ],
-        },
-        {
-          title: 'Lệnh chưa thực hiện xong',
-          total: Math.floor(5 * multiplier).toString(),
-          details: [
-            { label: 'Xuất kho', value: Math.floor(2 * multiplier) },
-            { label: 'Nhập kho', value: Math.floor(2 * multiplier) },
-            { label: 'Điều chuyển', value: Math.floor(1 * multiplier) },
-          ],
-        },
-        {
-          title: 'Lệnh quá thời hạn',
-          total: Math.floor(20 * multiplier).toString(),
-          details: [
-            { label: 'Xuất kho', value: Math.floor(6 * multiplier) },
-            { label: 'Nhập kho', value: Math.floor(7 * multiplier) },
-            { label: 'Điều chuyển', value: Math.floor(7 * multiplier) },
-          ],
-        },
-        {
-          title: 'Lệnh yêu cầu xử lý',
-          total: `${Math.floor(40 * multiplier)}/${Math.floor(44 * multiplier)}`,
-          details: [
-            { label: 'Xuất kho', value: Math.floor(13 * multiplier) },
-            { label: 'Nhập kho', value: Math.floor(14 * multiplier) },
-            { label: 'Điều chuyển', value: Math.floor(13 * multiplier) },
-          ],
-        },
-      ],
-    },
+    // {
+    //   title: 'Vật chất',
+    //   color: '#ECC94B',
+    //   cards: [
+    //     {
+    //       title: 'Kế hoạch chờ viết lệnh',
+    //       total: Math.floor(12 * multiplier).toString(),
+    //       details: [
+    //         { label: 'Xuất kho', value: Math.floor(4 * multiplier) },
+    //         { label: 'Nhập kho', value: Math.floor(4 * multiplier) },
+    //         { label: 'Điều chuyển', value: Math.floor(4 * multiplier) },
+    //       ],
+    //     },
+    //     {
+    //       title: 'Kế hoạch đã viết lệnh',
+    //       total: Math.floor(40 * multiplier).toString(),
+    //       details: [
+    //         { label: 'Xuất kho', value: Math.floor(13 * multiplier) },
+    //         { label: 'Nhập kho', value: Math.floor(14 * multiplier) },
+    //         { label: 'Điều chuyển', value: Math.floor(13 * multiplier) },
+    //       ],
+    //     },
+    //     {
+    //       title: 'Lệnh đã thực hiện xong',
+    //       total: Math.floor(34 * multiplier).toString(),
+    //       details: [
+    //         { label: 'Xuất kho', value: Math.floor(11 * multiplier) },
+    //         { label: 'Nhập kho', value: Math.floor(12 * multiplier) },
+    //         { label: 'Điều chuyển', value: Math.floor(11 * multiplier) },
+    //       ],
+    //     },
+    //     {
+    //       title: 'Lệnh chưa thực hiện xong',
+    //       total: Math.floor(5 * multiplier).toString(),
+    //       details: [
+    //         { label: 'Xuất kho', value: Math.floor(2 * multiplier) },
+    //         { label: 'Nhập kho', value: Math.floor(2 * multiplier) },
+    //         { label: 'Điều chuyển', value: Math.floor(1 * multiplier) },
+    //       ],
+    //     },
+    //     {
+    //       title: 'Lệnh quá thời hạn',
+    //       total: Math.floor(20 * multiplier).toString(),
+    //       details: [
+    //         { label: 'Xuất kho', value: Math.floor(6 * multiplier) },
+    //         { label: 'Nhập kho', value: Math.floor(7 * multiplier) },
+    //         { label: 'Điều chuyển', value: Math.floor(7 * multiplier) },
+    //       ],
+    //     },
+    //     {
+    //       title: 'Lệnh yêu cầu xử lý',
+    //       total: `${Math.floor(40 * multiplier)}/${Math.floor(44 * multiplier)}`,
+    //       details: [
+    //         { label: 'Xuất kho', value: Math.floor(13 * multiplier) },
+    //         { label: 'Nhập kho', value: Math.floor(14 * multiplier) },
+    //         { label: 'Điều chuyển', value: Math.floor(13 * multiplier) },
+    //       ],
+    //     },
+    //   ],
+    // },
   ];
 
   return {
@@ -1120,26 +1120,6 @@ export const summarySectionChartsData: SummaryChartData[] = [
     ],
   },
   {
-    title: 'DTQG',
-    total: 2200,
-    segments: [
-      { label: '0 → 5', percentage: 45, num1: 8, num2: 450, num3: 98.7 },
-      { label: '5 → 10', percentage: 30, num1: 6, num2: 280, num3: 65.4 },
-      { label: '10 → 20', percentage: 15, num1: 4, num2: 180, num3: 42.1 },
-      { label: '> 20', percentage: 10, num1: 3, num2: 120, num3: 28.9 },
-    ],
-  },
-  {
-    title: 'SSCĐ',
-    total: 6700,
-    segments: [
-      { label: '0 → 5', percentage: 38, num1: 16, num2: 1420, num3: 178.9 },
-      { label: '5 → 10', percentage: 27, num1: 12, num2: 850, num3: 125.6 },
-      { label: '10 → 20', percentage: 20, num1: 9, num2: 580, num3: 89.7 },
-      { label: '> 20', percentage: 15, num1: 7, num2: 450, num3: 67.8 },
-    ],
-  },
-  {
     title: 'Vật Chất',
     total: 15800,
     segments: [
@@ -1155,4 +1135,239 @@ export const summarySectionChartsData: SummaryChartData[] = [
 export const summarySectionData: SummarySectionData = {
   warehouseMultipliers: summaryWarehouseMultipliers,
   charts: summarySectionChartsData,
+};
+
+// Inventory Bar Chart Legend Data
+export interface InventoryBarLegendItem {
+  label: string;
+  color: string;
+  percent: string;
+  num1: string;
+  num2: string;
+  num3: string;
+}
+
+export const inventoryBarChartLegendData: InventoryBarLegendItem[] = [
+  {
+    label: 'Cấp 1',
+    color: '#00524E',
+    percent: '42%',
+    num1: '27.8',
+    num2: '1,245',
+    num3: '132.3k',
+  },
+  {
+    label: 'Cấp 2',
+    color: '#007D6E',
+    percent: '22%',
+    num1: '14.8',
+    num2: '890',
+    num3: '89.5k',
+  },
+  {
+    label: 'Cấp 3',
+    color: '#ECC94B',
+    percent: '16%',
+    num1: '10.6',
+    num2: '654',
+    num3: '55.1k',
+  },
+  {
+    label: 'Cấp 4',
+    color: '#DD6B20',
+    percent: '11%',
+    num1: '7.3',
+    num2: '423',
+    num3: '32.6k',
+  },
+  {
+    label: 'Cấp 5',
+    color: '#E53E3E',
+    percent: '9%',
+    num1: '6.0',
+    num2: '298',
+    num3: '2.6k',
+  },
+];
+
+// Grouped Bar Chart Data
+export const groupedBarChartColors: string[] = [
+  '#007D6E',
+  '#0074D6',
+  '#00B5E2',
+  '#1982C4',
+  '#38A169',
+  '#FFC300',
+  '#FF9F1C',
+  '#FF6F61',
+  '#E53E3E',
+  '#6C757D',
+  '#845EC2',
+  '#D65DB1',
+  '#DD6B20',
+];
+
+export interface GroupedBarLegendItem {
+  label: string;
+  color: string;
+}
+
+export const groupedBarChartLegendData: GroupedBarLegendItem[] = [
+  { label: 'Mua sắm sửa chữa', color: groupedBarChartColors[0] },
+  { label: 'Ngoài kế hoạch', color: groupedBarChartColors[1] },
+  { label: 'Tạm nhận', color: groupedBarChartColors[2] },
+  { label: 'Sửa chữa, sản xuất', color: groupedBarChartColors[3] },
+  { label: 'Điều chỉnh mã', color: groupedBarChartColors[4] },
+  { label: 'Điều động', color: groupedBarChartColors[5] },
+  { label: 'Vật tư SSCĐ thường xuyên', color: groupedBarChartColors[6] },
+  { label: 'Thu hồi', color: groupedBarChartColors[7] },
+  { label: 'KHSX (T. tỉnh)', color: groupedBarChartColors[8] },
+  { label: 'Trên cấp', color: groupedBarChartColors[9] },
+  { label: 'Trao đổi', color: groupedBarChartColors[10] },
+  { label: 'Chỉ tiêu SEC ngành', color: groupedBarChartColors[11] },
+  { label: 'Bổ sung giá', color: groupedBarChartColors[12] },
+];
+
+// Warehouse Status Data
+export interface WarehouseDetail {
+  label: string;
+  value: string;
+}
+
+export interface WarehouseStatusCard {
+  title: string;
+  sizeTitle: string;
+  totalArea: string;
+  warehouseCount: number;
+  usagePercentage: number;
+  usageColor: string;
+  details: WarehouseDetail[];
+}
+
+export const warehouseStatusData: WarehouseStatusCard[] = [
+  {
+    title: 'Kho K92 (A,B)',
+    sizeTitle: 'Tổng diện tích',
+    totalArea: '30,410',
+    warehouseCount: 1,
+    usagePercentage: 25,
+    usageColor: '#D69E2E',
+    details: [
+      { label: 'Chỉ huy kho', value: 'Nguyễn Văn A' },
+      { label: 'Vị trí đóng quân', value: 'A' },
+      { label: 'Tổng diện tích đất (m²)', value: '15362' },
+      { label: 'Tổng số nhà kho', value: '2' },
+      { label: 'Tổng diện tích (m²)', value: '15362' },
+      { label: 'Trữ lượng (tấn)', value: '15362' },
+      { label: 'Đã sử dụng (m²)', value: '15362' },
+      { label: 'Còn trống (m²)', value: '15362' },
+      { label: 'Người quản lý', value: 'Nguyễn Văn A' },
+    ],
+  },
+  {
+    title: 'Kho K95 (A,B,C)',
+    sizeTitle: 'Tổng diện tích',
+    totalArea: '2,299',
+    warehouseCount: 1,
+    usagePercentage: 60,
+    usageColor: '#0074D6',
+    details: [
+      { label: 'Chỉ huy kho', value: 'Nguyễn Văn B' },
+      { label: 'Vị trí đóng quân', value: 'A' },
+      { label: 'Tổng diện tích đất (m²)', value: '15362' },
+      { label: 'Tổng số nhà kho', value: '2' },
+      { label: 'Tổng diện tích (m²)', value: '15362' },
+      { label: 'Trữ lượng (tấn)', value: '15362' },
+      { label: 'Đã sử dụng (m²)', value: '15362' },
+      { label: 'Còn trống (m²)', value: '15362' },
+      { label: 'Người quản lý', value: 'Nguyễn Văn B' },
+    ],
+  },
+  {
+    title: 'Kho K97',
+    sizeTitle: 'Tổng diện tích',
+    totalArea: '47,785',
+    warehouseCount: 1,
+    usagePercentage: 85,
+    usageColor: '#39B89C',
+    details: [
+      { label: 'Chỉ huy kho', value: 'Nguyễn Văn C' },
+      { label: 'Vị trí đóng quân', value: 'A' },
+      { label: 'Tổng diện tích đất (m²)', value: '15362' },
+      { label: 'Tổng số nhà kho', value: '2' },
+      { label: 'Tổng diện tích (m²)', value: '15362' },
+      { label: 'Trữ lượng (tấn)', value: '15362' },
+      { label: 'Đã sử dụng (m²)', value: '15362' },
+      { label: 'Còn trống (m²)', value: '15362' },
+      { label: 'Người quản lý', value: 'Nguyễn Văn C' },
+    ],
+  },
+  {
+    title: 'Kho K99',
+    sizeTitle: 'Tổng diện tích',
+    totalArea: '31,199',
+    warehouseCount: 1,
+    usagePercentage: 45,
+    usageColor: '#4B96E7',
+    details: [
+      { label: 'Chỉ huy kho', value: 'Nguyễn Văn D' },
+      { label: 'Vị trí đóng quân', value: 'A' },
+      { label: 'Tổng diện tích đất (m²)', value: '15362' },
+      { label: 'Tổng số nhà kho', value: '2' },
+      { label: 'Tổng diện tích (m²)', value: '15362' },
+      { label: 'Trữ lượng (tấn)', value: '15362' },
+      { label: 'Đã sử dụng (m²)', value: '15362' },
+      { label: 'Còn trống (m²)', value: '15362' },
+      { label: 'Người quản lý', value: 'Nguyễn Văn D' },
+    ],
+  },
+];
+
+// Filter Options Data
+export interface FilterOption {
+  value: string;
+  label: string;
+}
+
+export const warehouseViewOptions: FilterOption[] = [
+  { value: 'amount', label: 'Xem theo thành tiền' },
+  { value: 'quantity', label: 'Xem theo số lượng' },
+  { value: 'area', label: 'Xem theo diện tích' },
+];
+
+export const warehouseFilterOptions: FilterOption[] = [
+  { value: 'all', label: 'Tất cả các kho' },
+  { value: 'main', label: 'Kho chính' },
+  { value: 'branch', label: 'Kho chi nhánh' },
+  { value: 'temp', label: 'Kho tạm thời' },
+];
+
+// Summary Section Filter Options
+export const summaryWarehouseFilterOptions: FilterOption[] = [
+  { value: 'all', label: 'Tất cả các kho' },
+  { value: 'k92', label: 'Kho K92 (A,B)' },
+  { value: 'k95', label: 'Kho K95 (A,B)' },
+  { value: 'k97', label: 'Kho K97' },
+  { value: 'k99', label: 'Kho K99' },
+];
+
+export const summaryInventoryFilterOptions: FilterOption[] = [
+  { value: 'all', label: 'Tất cả loại tồn kho' },
+  { value: 'tb-n1', label: 'Tồn kho trang bị nhóm 1' },
+  { value: 'tb-n2', label: 'Tồn kho trang bị nhóm 2' },
+  { value: 'vt-n1', label: 'Tồn kho vật tư nhóm 1' },
+  { value: 'vt-n2', label: 'Tồn kho vật tư nhóm 2' },
+  { value: 'vc', label: 'Tồn kho vật chất' },
+];
+
+// Dummy warehouse data for chart testing
+export const createTestWarehouseData = (): WarehouseChartData[] => {
+  return Array.from({ length: 13 }, (_, i) => ({
+    warehouseId: `warehouse_${i + 1}`,
+    warehouseName: `Kho ${i + 1}`,
+    tdm: Math.floor(Math.random() * 200) + 100, // 100-300
+    tsl: Math.floor(Math.random() * 5000) + 1000, // 1000-6000
+    cl: Math.floor(Math.random() * 30) + 70, // 70-100%
+    value: Math.floor(Math.random() * 800) + 200, // 200-1000
+  }));
 };

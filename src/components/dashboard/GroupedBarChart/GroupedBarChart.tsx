@@ -129,7 +129,7 @@ const GroupedBarChart: React.FC<GroupedBarChartProps> = ({
 
   return (
     <div className={styles.chartWrapper}>
-      <div style={{ height: '250px', width: '100%' }}>
+      <div className={styles.chartCanvas}>
         <Bar options={options} data={data} />
       </div>
       {!isExpanded && (
@@ -138,7 +138,7 @@ const GroupedBarChart: React.FC<GroupedBarChartProps> = ({
             <div key={item.label} className={styles.legendItem}>
               <div
                 className={styles.legendColor}
-                style={{ backgroundColor: item.color }}
+                style={{ '--legend-color': item.color } as React.CSSProperties}
               />
               <span className={styles.legendLabel}>{item.label}</span>
             </div>

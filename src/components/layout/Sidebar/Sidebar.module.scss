@@ -68,19 +68,19 @@
 
 .logoText {
   color: white;
-  line-height: var(--line-height-tight);
+  line-height: 1.25;
 }
 
 .logoTitle {
-  font-size: var(--font-base);
-  font-weight: var(--font-weight-bold);
+  font-size: 16px;
+  font-weight: 700;
   letter-spacing: 0.03125rem; // 0.5px converted to rem
   text-transform: uppercase;
 }
 
 .logoSubtitle {
-  font-size: var(--font-sm);
-  font-weight: var(--font-weight-normal);
+  font-size: 14px;
+  font-weight: 400;
   opacity: 0.8;
   margin-top: 0.125rem; // 2px to rem
 }
@@ -107,8 +107,8 @@
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
-    font-size: var(--font-base);
-    font-weight: var(--font-weight-medium);
+    font-size: 16px;
+    font-weight: 500;
 
     &::before {
       content: '';
@@ -139,18 +139,18 @@
 
     &.ant-menu-item-selected {
       background: rgba(255, 255, 255, 0.95) !important;
-      color: var(--ant-primary-color, #1e40af) !important;
-      font-weight: var(--font-weight-semibold);
+      color: #1e40af !important;
+      font-weight: 600;
       transform: translateX(0.25rem);
       box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.15);
 
       .anticon {
-        color: var(--ant-primary-color, #1e40af) !important;
+        color: #1e40af !important;
       }
     }
 
     .anticon {
-      font-size: var(--font-lg);
+      font-size: 18px;
       margin-right: 0.75rem;
       transition: color 0.3s ease;
     }
@@ -218,7 +218,7 @@
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: var(--font-base);
+  font-size: 16px;
   border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
@@ -228,19 +228,19 @@
 }
 
 .userName {
-  font-size: var(--font-base);
-  font-weight: var(--font-weight-medium);
+  font-size: 16px;
+  font-weight: 500;
   color: white;
   margin: 0;
-  line-height: var(--line-height-snug);
+  line-height: 1.375;
 }
 
 .userRole {
-  font-size: var(--font-sm);
-  font-weight: var(--font-weight-normal);
+  font-size: 14px;
+  font-weight: 400;
   color: rgba(255, 255, 255, 0.7);
   margin: 0;
-  line-height: var(--line-height-normal);
+  line-height: 1.5;
 }
 
 // Responsive adjustments

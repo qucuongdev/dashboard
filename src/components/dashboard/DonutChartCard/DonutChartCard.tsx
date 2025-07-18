@@ -62,11 +62,11 @@ const DonutChartCard: React.FC<DonutChartCardProps> = ({
       <div className={styles.content}>
         {!hideActions && (
           <div className={styles.actions}>
-            <Select defaultValue="nganh" className={styles.selectBox}>
-              <Option value="nganh">Ngành</Option>
-              <Option value="sl">SL</Option>
-              <Option value="cap_cl">Cấp CL</Option>
-              <Option value="gia_tri">Giá trị</Option>
+            <Select defaultValue="nhom1" className={styles.selectBox}>
+              <Option value="nhom1">Nhóm 1</Option>
+              <Option value="nhom2">Nhóm 2</Option>
+              <Option value="nhom3">Nhóm 3</Option>
+              <Option value="nhom4">Nhóm 4</Option>
             </Select>
           </div>
         )}

@@ -1,48 +1,60 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MainLayout from './components/layout/MainLayout/MainLayout';
-import DashboardPage from './pages/DashboardPage/DashboardPage';
-import InventoryPage from './pages/InventoryPage/InventoryPage';
-import EquipmentPage from './pages/EquipmentPage/EquipmentPage';
-import './styles/global.scss';
+import DashboardPage from './pages/Dashboard/DashboardPage';
+import styles from './App.module.scss';
+
+const InventoryPage = () => (
+  <div className={styles.placeholderPage}>
+    <h1>📦 Quản lý tồn kho</h1>
+    <p>Tính năng đang được phát triển</p>
+  </div>
+);
+
+const EquipmentPage = () => (
+  <div className={styles.placeholderPage}>
+    <h1>📦 Trang bị</h1>
+    <p>Tính năng đang được phát triển</p>
+  </div>
+);
 
 const MaterialsPage = () => (
-  <div style={{ padding: '24px', textAlign: 'center' }}>
+  <div className={styles.placeholderPage}>
     <h1>📦 Vật Tư</h1>
     <p>Tính năng đang được phát triển</p>
   </div>
 );
 
 const StatisticsPage = () => (
-  <div style={{ padding: '24px', textAlign: 'center' }}>
+  <div className={styles.placeholderPage}>
     <h1>📊 Thống Kê</h1>
     <p>Tính năng đang được phát triển</p>
   </div>
 );
 
 const ReportsPage = () => (
-  <div style={{ padding: '24px', textAlign: 'center' }}>
+  <div className={styles.placeholderPage}>
     <h1>📋 Báo Cáo</h1>
     <p>Tính năng đang được phát triển</p>
   </div>
 );
 
 const DocumentsPage = () => (
-  <div style={{ padding: '24px', textAlign: 'center' }}>
+  <div className={styles.placeholderPage}>
     <h1>📁 Tài Liệu</h1>
     <p>Tính năng đang được phát triển</p>
   </div>
 );
 
 const UsersPage = () => (
-  <div style={{ padding: '24px', textAlign: 'center' }}>
+  <div className={styles.placeholderPage}>
     <h1>👥 Quản Lý Người Dùng</h1>
     <p>Tính năng đang được phát triển</p>
   </div>
 );
 
 const SettingsPage = () => (
-  <div style={{ padding: '24px', textAlign: 'center' }}>
+  <div className={styles.placeholderPage}>
     <h1>⚙️ Cài Đặt Hệ Thống</h1>
     <p>Tính năng đang được phát triển</p>
   </div>

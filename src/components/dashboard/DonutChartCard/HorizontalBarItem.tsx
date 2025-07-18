@@ -17,17 +17,20 @@ const HorizontalBarItem: React.FC<HorizontalBarItemProps> = ({
   backgroundColor = '#DDE3E7',
 }) => {
   return (
-    <div className={styles.barItem}>
+    <div
+      className={styles.barItem}
+      style={
+        {
+          '--bar-background-color': backgroundColor,
+          '--bar-fill-color': color,
+          '--bar-percentage': `${percentage}%`,
+        } as React.CSSProperties
+      }
+    >
       <div className={styles.categoryName}>{categoryName}</div>
       <div className={styles.barContainer}>
-        <div className={styles.barBackground} style={{ backgroundColor }}>
-          <div
-            className={styles.barFill}
-            style={{
-              width: `${percentage}%`,
-              backgroundColor: color,
-            }}
-          />
+        <div className={styles.barBackground}>
+          <div className={styles.barFill} />
         </div>
       </div>
       <div className={styles.value}>{value}</div>

@@ -72,11 +72,32 @@
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   }
 
+  // Row text color styles
+  .beginningInventoryRow td:first-child {
+    color: #1a237e !important;
+  }
+
+  .increaseRow td:first-child {
+    color: #2e7d32 !important;
+  }
+
+  .decreaseRow td:first-child {
+    color: #c62828 !important;
+  }
+
+  .currentInventoryRow td:first-child {
+    color: #3949ab !important;
+  }
+
+  tbody td {
+    text-align: center;
+  }
+
   thead th:first-child {
     position: sticky;
     left: 0;
     z-index: 15;
-    background-color: #0056b3;
+    // background-color: #0056b3;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   }
 }
@@ -104,4 +125,25 @@
       padding: 6px 8px;
     }
   }
+}
+
+// New classes for inline CSS replacement
+.loadingContainer {
+  text-align: center;
+  padding: 50px;
+}
+
+.loadingText {
+  margin-top: 16px;
+}
+
+.noDataContainer {
+  text-align: center;
+  padding: 50px;
+}
+
+// Updating state
+.updating {
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
 }

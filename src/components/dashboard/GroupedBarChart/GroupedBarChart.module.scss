@@ -52,6 +52,7 @@
   height: 12px;
   border-radius: 50%;
   flex-shrink: 0;
+  background-color: var(--legend-color, #007d6e);
 }
 
 .legendLabel {
@@ -72,4 +73,10 @@
   &:hover {
     text-decoration: underline;
   }
+}
+
+// New class for inline CSS replacement
+.chartCanvas {
+  height: 250px;
+  width: 100%;
 }

@@ -1,259 +1,247 @@
 .inventoryBarChart {
   background: #ffffff;
   border-radius: 8px;
-  box-shadow:
-    0px 0px 1px 0px rgba(0, 0, 0, 0.25),
-    0px 2px 4px 0px rgba(0, 0, 0, 0.05);
-  overflow: hidden;
-  width: 100%;
-  max-width: 1872px;
-  margin: 0 auto;
+  box-shadow: 0px 1.25px 4px 0px rgba(16, 24, 40, 0.25);
+  padding: 16px;
+  margin-bottom: 24px;
 }
 
 .header {
-  border-bottom: 1px solid #dde3e7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
 
-  .title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 1.5em;
-    color: #172733;
-    margin: 0;
-    padding: 18px 24px;
+  // Mobile responsive
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
+
+.title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #172733;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
+}
+
+.headerFilters {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+    align-items: stretch;
+  }
+}
+
+.selectBox {
+  min-width: 160px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    min-width: unset;
   }
 
-  .divider {
-    height: 1px;
-    background: #dde3e7;
-    width: 100%;
+  :global(.ant-select-selector) {
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    height: 32px;
+    text-align: left !important;
+    transition: all 0.2s ease;
+
+    :global(.ant-select-selection-item) {
+      line-height: 30px;
+      font-size: 14px;
+      color: #374151;
+      text-align: left !important;
+    }
+  }
+
+  &:hover :global(.ant-select-selector) {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.1);
+  }
+
+  &:global(.ant-select-focused) :global(.ant-select-selector) {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+    outline: none;
+  }
+}
+
+.divider {
+  height: 1px;
+  background-color: #e5e7eb;
+  margin-bottom: 16px;
+}
+
+.tabContainer {
+  border-radius: 6px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0;
+  margin-bottom: 20px;
+
+  .tabGroup {
+    display: flex;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  @media (max-width: 768px) {
+    justify-content: center;
+
+    .tabGroup {
+      width: 100%;
+    }
+  }
+}
+
+.tabButton {
+  padding: 8px 16px;
+  border: none;
+  border-right: 1px solid #e5e7eb;
+  background: #ffffff;
+  color: #6b7280;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:last-child {
+    border-right: none;
+  }
+
+  @media (max-width: 768px) {
+    padding: 6px 12px;
+    font-size: 13px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  &:hover {
+    background: #f3f4f6;
+    color: #3b82f6;
+  }
+
+  &.active {
+    background: #3b82f6;
+    color: #ffffff;
   }
 }
 
 .content {
   display: flex;
   gap: 24px;
-  padding: 24px;
-  align-items: flex-start;
 
   @media (max-width: 1024px) {
     flex-direction: column;
-    gap: 16px;
-  }
-
-  @media (max-width: 768px) {
-    padding: 16px;
-    gap: 12px;
-  }
-
-  @media (max-width: 480px) {
-    padding: 12px;
-    gap: 8px;
+    gap: 20px;
   }
 }
 
 .chartArea {
   flex: 1;
   min-width: 0;
-
-  @media (max-width: 1024px) {
-    width: 100%;
-  }
 }
 
 .chartContainer {
+  height: 300px;
   width: 100%;
-  height: 439px;
-  position: relative;
-
-  @media (max-width: 1024px) {
-    height: 350px;
-  }
 
   @media (max-width: 768px) {
-    height: 280px;
-  }
-
-  @media (max-width: 480px) {
-    height: 220px;
+    height: 250px;
   }
 }
 
 .legendArea {
   flex-shrink: 0;
-  width: 335px;
+  width: 320px;
 
   @media (max-width: 1024px) {
     width: 100%;
   }
-
-  @media (max-width: 480px) {
-    width: 100%;
-    margin-top: 8px;
-  }
 }
 
 .legend {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 16px;
 }
 
 .legendRow {
   display: flex;
+  justify-content: flex-start;
   align-items: center;
-  justify-content: space-between;
-  padding: 2px 0;
+  padding: 8px 0;
+  gap: 12px;
 
-  @media (max-width: 768px) {
-    padding: 3px 0;
-  }
-
-  @media (max-width: 480px) {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-    padding: 4px 0;
+  &:last-child {
+    border-bottom: none;
   }
 }
 
 .legendInfo {
   display: flex;
   align-items: center;
-  gap: 4px;
-  flex: 1;
-
-  @media (max-width: 480px) {
-    width: 100%;
-    gap: 6px;
-  }
+  gap: 8px;
+  // flex: 1;
 }
 
 .legendColor {
   width: 12px;
   height: 12px;
-  border-radius: 4px;
+  border-radius: 50%;
   flex-shrink: 0;
-
-  @media (max-width: 480px) {
-    width: 10px;
-    height: 10px;
-  }
+  background-color: var(--legend-color, #6b7280);
 }
 
 .legendLabel {
-  font-family: 'Public Sans', sans-serif;
-  font-weight: 400;
   font-size: 14px;
-  line-height: 1.25em;
-  letter-spacing: -0.5%;
-  color: #2d3748;
-
-  @media (max-width: 768px) {
-    font-size: 13px;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 12px;
-    font-weight: 500;
-  }
+  color: #374151;
+  font-weight: 500;
 }
 
 .legendNumbers {
+  width: 75%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   gap: 12px;
-  flex-shrink: 0;
+  align-items: center;
 
   @media (max-width: 768px) {
     gap: 8px;
   }
-
-  @media (max-width: 480px) {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 4px;
-    margin-top: 0;
-  }
 }
 
 .percent {
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
   font-size: 14px;
-  line-height: 1.25em;
-  letter-spacing: -0.5%;
-  color: #6e7880;
+  font-weight: 600;
+  color: #1f2937;
+  min-width: 32px;
   text-align: right;
-  min-width: 40px;
-
-  @media (max-width: 768px) {
-    font-size: 13px;
-    min-width: 35px;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 10px;
-    min-width: unset;
-    text-align: center;
-    padding: 2px 4px;
-    background-color: #e2e8f0;
-    border-radius: 3px;
-    font-weight: 500;
-  }
 }
 
 .number {
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.25em;
-  letter-spacing: -0.5%;
-  color: #2d3748;
+  font-size: 13px;
+  color: #6b7280;
+  min-width: 24px;
   text-align: right;
-  min-width: 50px;
 
   @media (max-width: 768px) {
-    font-size: 13px;
-    min-width: 45px;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 10px;
-    min-width: unset;
-    text-align: center;
-    padding: 2px 4px;
-    background-color: #f7fafc;
-    border-radius: 3px;
-    font-weight: 500;
-  }
-}
-
-/* Responsive adjustments */
-@media (max-width: 1200px) {
-  .inventoryBarChart {
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 768px) {
-  .header .title {
-    font-size: 18px;
-    padding: 16px 16px;
-  }
-}
-
-@media (max-width: 480px) {
-  .header .title {
-    font-size: 16px;
-    padding: 12px 12px;
-  }
-
-  .legendRow {
-    padding: 4px 0;
+    font-size: 12px;
+    min-width: 20px;
   }
 }

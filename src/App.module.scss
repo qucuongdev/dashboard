@@ -1,0 +1,38 @@
+.placeholderPage {
+  padding: 24px;
+  text-align: center;
+
+  h1 {
+    margin-bottom: 1rem;
+    color: #1e293b;
+  }
+
+  p {
+    color: #64748b;
+    font-size: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    padding: 16px;
+
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 12px;
+
+    h1 {
+      font-size: 1.25rem;
+    }
+
+    p {
+      font-size: 0.85rem;
+    }
+  }
+}

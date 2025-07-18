@@ -2,14 +2,14 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { Row, Col, Tabs, Spin } from 'antd';
 import styles from './DashboardPage.module.scss';
 
-import BreadcrumbComponent from '../Dashboard/Breadcrumb/Breadcrumb';
+import BreadcrumbComponent from './Breadcrumb/Breadcrumb';
 import Scorecard from '../../components/dashboard/Scorecard/Scorecard';
 import DonutChartCard from '../../components/dashboard/DonutChartCard/DonutChartCard';
-import WarehouseInfo from '../Dashboard/WarehouseInfo/WarehouseInfo';
-import WarehouseStatus from '../Dashboard/WarehouseStatus/WarehouseStatus';
-import SummarySection from '../Dashboard/SummarySection/SummarySection';
-import SummaryTable from '../Dashboard/SummaryTable/SummaryTable';
-import InventoryCharts from '../Dashboard/InventoryCharts/InventoryCharts';
+import WarehouseInfo from './WarehouseInfo/WarehouseInfo';
+import WarehouseStatus from './WarehouseStatus/WarehouseStatus';
+import SummarySection from './SummarySection/SummarySection';
+import InventorySummary from './InventorySummary/InventorySummary';
+import { UpdatingIndicator } from '../../components/common';
 
 import { api } from '../../services/api';
 import type {
@@ -214,9 +214,9 @@ const DashboardPage: React.FC = () => {
   if (loading) {
     return (
       <div className={styles.dashboardPage}>
-        <div style={{ textAlign: 'center', padding: '50px' }}>
+        <div className={styles.loadingContainer}>
           <Spin size="large" />
-          <p style={{ marginTop: 16 }}>Đang tải dữ liệu...</p>
+          <p className={styles.loadingText}>Đang tải dữ liệu...</p>
         </div>
       </div>
     );
@@ -241,34 +241,19 @@ const DashboardPage: React.FC = () => {
       />
 
       {/* Show subtle updating indicator */}
-      {updating && (
-        <div
-          style={{
-            position: 'fixed',
-            top: 80,
-            right: 24,
-            zIndex: 1000,
-            backgroundColor: '#1890ff',
-            color: 'white',
-            padding: '8px 16px',
-            borderRadius: '4px',
-            fontSize: '12px',
-            boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
-          }}
-        >
-          <Spin size="small" style={{ marginRight: 8 }} />
-          Đang cập nhật dữ liệu...
-        </div>
-      )}
+      <UpdatingIndicator
+        visible={updating}
+        text="Đang cập nhật dữ liệu..."
+        position="top-right"
+        theme="primary"
+      />
 
       <Row gutter={[24, 24]} className={styles.scorecardSection}>
-        <Col span={12}>
+        <Col xs={24} sm={24} md={12}>
           <div
-            style={{
-              position: 'relative',
-              opacity: updating ? 0.7 : 1,
-              transition: 'opacity 0.3s',
-            }}
+            className={`${styles.scorecardWrapper} ${
+              updating ? styles.updating : ''
+            }`}
           >
             <Scorecard
               title="Quản lý số lượng"
@@ -286,13 +271,11 @@ const DashboardPage: React.FC = () => {
             />
           </div>
         </Col>
-        <Col span={12}>
+        <Col xs={24} sm={24} md={12}>
           <div
-            style={{
-              position: 'relative',
-              opacity: updating ? 0.7 : 1,
-              transition: 'opacity 0.3s',
-            }}
+            className={`${styles.scorecardWrapper} ${
+              updating ? styles.updating : ''
+            }`}
           >
             <Scorecard
               title="Quản lý giá trị"
@@ -313,21 +296,13 @@ const DashboardPage: React.FC = () => {
         </Col>
       </Row>
 
-      <div
-        style={{
-          marginTop: 24,
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-          gap: '16px',
-        }}
-      >
+      <div className={styles.donutChartsGrid}>
         {donutChartsData.map((card) => (
           <div
             key={card.title}
-            style={{
-              opacity: updating ? 0.7 : 1,
-              transition: 'opacity 0.3s',
-            }}
+            className={`${styles.donutChartWrapper} ${
+              updating ? styles.updating : ''
+            }`}
           >
             <DonutChartCard
               title={card.title}
@@ -347,7 +322,7 @@ const DashboardPage: React.FC = () => {
             <div key={item.label} className={styles.legendItem}>
               <span
                 className={styles.legendColor}
-                style={{ backgroundColor: item.color }}
+                style={{ '--legend-color': item.color } as React.CSSProperties}
               />
               <span>{item.label}</span>
             </div>
@@ -355,17 +330,16 @@ const DashboardPage: React.FC = () => {
         </div>
       </div>
 
-      <div style={{ marginTop: 24 }}>
+      <div className={styles.sectionSpacing}>
         <WarehouseInfo selectedOrganization={selectedOrganization} />
       </div>
-      <div style={{ marginTop: 24 }}>
-        <SummaryTable selectedOrganization={selectedOrganization} />
-        <InventoryCharts selectedOrganization={selectedOrganization} />
+      <div className={styles.sectionSpacing}>
+        <InventorySummary selectedOrganization={selectedOrganization} />
       </div>
-      <div style={{ marginTop: 24 }}>
+      <div className={styles.sectionSpacing}>
         <WarehouseStatus />
       </div>
-      <div style={{ marginTop: 24 }}>
+      <div className={styles.sectionSpacing}>
         <SummarySection />
       </div>
     </div>

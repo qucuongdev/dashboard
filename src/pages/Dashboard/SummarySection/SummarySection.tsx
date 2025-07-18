@@ -6,6 +6,8 @@ import DonutChartCard from '../../../components/dashboard/DonutChartCard/DonutCh
 import {
   summarySectionChartsData,
   summaryWarehouseMultipliers,
+  summaryWarehouseFilterOptions,
+  summaryInventoryFilterOptions,
 } from '../../../data/dummyData';
 
 const SummarySection: React.FC = () => {
@@ -25,8 +27,6 @@ const SummarySection: React.FC = () => {
         'tb-n2': ['Trang Bị Nhóm 2'],
         'vt-n1': ['Vật Tư Nhóm 1'],
         'vt-n2': ['Vật Tư Nhóm 2'],
-        dtqg: ['DTQG'],
-        sscd: ['SSCĐ'],
         vc: ['Vật Chất'],
       };
 
@@ -59,59 +59,32 @@ const SummarySection: React.FC = () => {
     }));
   }, [selectedWarehouse, selectedInventory]);
 
-  const warehouseOptions = [
-    { value: 'all', label: 'Tất cả các kho' },
-    { value: 'k92', label: 'Kho K92 (A,B)' },
-    { value: 'k95', label: 'Kho K95 (A,B)' },
-    { value: 'k97', label: 'Kho K97' },
-    { value: 'k99', label: 'Kho K99' },
-  ];
-
-  const inventoryOptions = [
-    { value: 'all', label: 'Tất cả loại tồn kho' },
-    { value: 'tb-n1', label: 'Tồn kho trang bị nhóm 1' },
-    { value: 'tb-n2', label: 'Tồn kho trang bị nhóm 2' },
-    { value: 'vt-n1', label: 'Tồn kho vật tư nhóm 1' },
-    { value: 'vt-n2', label: 'Tồn kho vật tư nhóm 2' },
-    { value: 'dtqg', label: 'Tồn kho DTQG' },
-    { value: 'sscd', label: 'Tồn kho SSCĐ' },
-    { value: 'vc', label: 'Tồn kho vật chất' },
-  ];
+  // Use centralized filter options
+  const warehouseOptions = summaryWarehouseFilterOptions;
+  const inventoryOptions = summaryInventoryFilterOptions;
 
   return (
     <div className={styles.summaryContainer}>
       <div className={styles.header}>
-        <h2>Tổng hợp chất lượng trang bị, vật tư, vật chất</h2>
+        <h2>Tồn kho theo năm</h2>
         <div className={styles.filters}>
           <Select
             value={selectedWarehouse}
             onChange={setSelectedWarehouse}
-            style={{ width: '100%', minWidth: 180, maxWidth: 300 }}
+            className={`${styles.selectBox} ${styles.selectStyles}`}
             options={warehouseOptions}
-            className={styles.selectBox}
           />
           <Select
             value={selectedInventory}
             onChange={setSelectedInventory}
-            style={{ width: '100%', minWidth: 240, maxWidth: 320 }}
+            className={`${styles.selectBox} ${styles.selectInventoryStyles}`}
             options={inventoryOptions}
-            className={styles.selectBox}
           />
         </div>
       </div>
 
       {/* All Donut Charts */}
-      <div
-        // className={styles.chartsGrid}
-
-        style={{
-          marginTop: 24,
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-          gap: '16px',
-        }}
-        // data-count={processedChartsData.length}
-      >
+      <div className={styles.donutChartsGrid}>
         {processedChartsData.map((chart) => (
           <div key={chart.title} className={styles.donutChartWrapper}>
             <DonutChartCard
@@ -130,7 +103,11 @@ const SummarySection: React.FC = () => {
                   <div className={styles.legendInfo}>
                     <div
                       className={styles.legendColor}
-                      style={{ backgroundColor: legend.color }}
+                      style={
+                        {
+                          '--legend-color': legend.color,
+                        } as React.CSSProperties
+                      }
                     />
                     <span className={styles.legendLabel}>{legend.label}</span>
                     <span className={styles.legendPercentage}>
@@ -150,7 +127,7 @@ const SummarySection: React.FC = () => {
       </div>
 
       {/* Bar Chart Section */}
-      <div style={{ marginTop: 16 }}>
+      <div className={styles.barChartSection}>
         <InventoryBarChart />
       </div>
     </div>

@@ -64,6 +64,7 @@
 
 // Scorecard section styling
 .scorecardSection {
+  margin-top: 16px;
   :global(.ant-row) {
     align-items: stretch; /* Ensure equal height columns */
   }
@@ -127,6 +128,7 @@
   width: 12px;
   height: 12px;
   border-radius: 4px;
+  background-color: var(--legend-color, #007d6e);
 }
 
 // Responsive adjustments
@@ -159,4 +161,40 @@
     width: 10px;
     height: 10px;
   }
+}
+
+// New classes for inline CSS replacement
+.loadingContainer {
+  text-align: center;
+  padding: 50px;
+}
+
+.loadingText {
+  margin-top: 16px;
+}
+
+// UpdatingIndicator styles đã được move vào component riêng
+
+.scorecardWrapper {
+  position: relative;
+  transition: opacity 0.3s;
+}
+
+.updating {
+  opacity: 0.7;
+}
+
+.donutChartsGrid {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.donutChartWrapper {
+  transition: opacity 0.3s;
+}
+
+.sectionSpacing {
+  margin-top: 24px;
 }

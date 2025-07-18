@@ -5,7 +5,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  border-left: 4px solid; // color will be set via inline style
+  border-left: 4px solid var(--info-card-color, #007d6e);
   box-shadow: 0px 1.25px 4px 0px rgba(16, 24, 40, 0.25);
   min-height: 120px; /* Consistent height */
   height: 100%; /* Fill grid cell */
@@ -30,7 +30,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
   color: #2d3748;
   gap: 8px;
@@ -42,6 +42,7 @@
     line-height: 1.1;
     word-break: break-all; /* Handle long numbers */
     max-width: 100%;
+    color: var(--info-card-color, #007d6e);
   }
 
   @media (max-width: 1024px) {
@@ -102,31 +103,12 @@
   justify-content: space-between;
   align-items: center;
   font-size: 14px;
-  color: #7a7f89;
   line-height: 1.4;
   min-height: 20px; /* Consistent row height */
-
-  span:first-child {
-    flex: 1;
-    margin-right: 8px;
-    word-break: break-word;
-  }
-
-  span:last-child {
-    color: #2d3748;
-    font-weight: 500;
-    text-align: right;
-    flex-shrink: 0;
-    word-break: break-all; /* Handle long numbers */
-  }
 
   @media (max-width: 768px) {
     font-size: 13px;
     min-height: 18px;
-
-    span:first-child {
-      margin-right: 6px;
-    }
   }
 
   @media (max-width: 480px) {
@@ -134,21 +116,39 @@
     min-height: 16px;
     flex-wrap: wrap;
     gap: 2px;
-
-    span:first-child {
-      margin-right: 4px;
-    }
-
-    span:last-child {
-      font-size: 11px;
-    }
   }
 
   @media (max-width: 360px) {
     font-size: 11px;
+  }
+}
 
-    span:last-child {
-      font-size: 10px;
-    }
+.detailLabel {
+  flex: 1;
+  margin-right: 8px;
+  word-break: break-word;
+  font-weight: 500;
+
+  @media (max-width: 768px) {
+    margin-right: 6px;
+  }
+
+  @media (max-width: 480px) {
+    margin-right: 4px;
+  }
+}
+
+.detailValue {
+  font-weight: 600;
+  text-align: right;
+  flex-shrink: 0;
+  word-break: break-all; /* Handle long numbers */
+
+  @media (max-width: 480px) {
+    font-size: 11px;
+  }
+
+  @media (max-width: 360px) {
+    font-size: 10px;
   }
 }

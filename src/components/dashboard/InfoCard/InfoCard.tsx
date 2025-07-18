@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './InfoCard.module.scss';
+import { getOperationColor } from '../../../utils/warehouseColors';
 
 interface InfoCardProps {
   title: string;
@@ -15,20 +16,34 @@ const InfoCard: React.FC<InfoCardProps> = ({
   color,
 }) => {
   return (
-    <div className={styles.infoCard} style={{ borderLeftColor: color }}>
+    <div
+      className={styles.infoCard}
+      style={{ '--info-card-color': color } as React.CSSProperties}
+    >
       <div className={styles.cardHeader}>
         <span>{title}</span>
-        <span className={styles.total} style={{ color: color }}>
-          {total}
-        </span>
+        <span className={styles.total}>{total}</span>
       </div>
       <div className={styles.cardBody}>
-        {details.map((item, index) => (
-          <div key={index} className={styles.detailItem}>
-            <span>{item.label}</span>
-            <span>{item.value}</span>
-          </div>
-        ))}
+        {details.map((item, index) => {
+          const operationColor = getOperationColor(item.label);
+          return (
+            <div key={index} className={styles.detailItem}>
+              <span
+                className={styles.detailLabel}
+                style={{ color: operationColor }}
+              >
+                {item.label}
+              </span>
+              <span
+                className={styles.detailValue}
+                style={{ color: operationColor }}
+              >
+                {item.value}
+              </span>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

@@ -131,7 +131,6 @@ const Header: React.FC<HeaderProps> = ({ onToggleSidebar }) => {
           alt="Menu"
           className={styles.hamburger}
           onClick={onToggleSidebar}
-          style={{ cursor: 'pointer' }}
         />
         <div className={styles.logoContainer}>
           <img src={Logo} alt="Logo" className={styles.logo} />

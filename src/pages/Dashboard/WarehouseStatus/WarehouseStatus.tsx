@@ -1,37 +1,59 @@
 import React, { useState } from 'react';
 import styles from './WarehouseStatus.module.scss';
-import { Select } from 'antd';
+import { Select, Tooltip } from 'antd';
+import {
+  warehouseStatusData,
+  warehouseViewOptions,
+  warehouseFilterOptions,
+  type WarehouseStatusCard,
+} from '../../../data/dummyData';
 
-interface Detail {
-  label: string;
-  value: string;
-}
+// Using types from dummyData.ts
+type Detail = { label: string; value: string };
+type WarehouseCardProps = WarehouseStatusCard;
 
-interface WarehouseCardProps {
-  title: string;
+const ProgressBar: React.FC<{
+  percentage: number;
+  color: string;
   totalArea: string;
-  warehouseCount: number;
-  usagePercentage: number;
-  usageColor: string;
-  details: Detail[];
-}
+}> = ({ percentage, color, totalArea }) => {
+  // Parse total area và tính diện tích còn lại
+  const totalAreaNumber = parseFloat(totalArea.replace(/,/g, ''));
+  const remainingArea = Math.round(
+    (totalAreaNumber * (100 - percentage)) / 100
+  );
+  const formattedRemainingArea = remainingArea.toLocaleString('vi-VN');
 
-const ProgressBar: React.FC<{ percentage: number; color: string }> = ({
-  percentage,
-  color,
-}) => (
-  <div className={styles.progressBarContainer}>
-    <div className={styles.progressBarTrack}>
-      <div
-        className={styles.progressBar}
-        style={{ width: `${percentage}%`, backgroundColor: color }}
-      ></div>
-    </div>
-  </div>
-);
+  return (
+    <Tooltip
+      title={
+        <div>
+          <div>Tỷ lệ sử dụng: {percentage}%</div>
+          <div>Còn lại: {formattedRemainingArea} m²</div>
+        </div>
+      }
+      placement="top"
+      arrow={false}
+    >
+      <div className={styles.progressBarContainer}>
+        <div className={styles.progressBarTrack}>
+          <div
+            className={styles.progressBar}
+            style={
+              {
+                '--progress-width': `${percentage}%`,
+                '--progress-color': color,
+              } as React.CSSProperties
+            }
+          ></div>
+        </div>
+      </div>
+    </Tooltip>
+  );
+};
 
 const WarehouseCard: React.FC<WarehouseCardProps> = (props) => {
-  const [isExpanded, setIsExpanded] = useState(true); // Expand all cards by default
+  const [isExpanded, setIsExpanded] = useState(false); // Expand all cards by default
 
   return (
     <div className={styles.warehouseCard}>
@@ -40,9 +62,12 @@ const WarehouseCard: React.FC<WarehouseCardProps> = (props) => {
       </div>
       <div className={styles.cardBody}>
         <div className={styles.mainInfo}>
-          <span className={styles.totalArea}>{props.totalArea}</span>
-          <span className={styles.warehouseCount}>
-            m² ({props.warehouseCount} Kho)
+          <span className={styles.sizeTitle}>{props.sizeTitle}</span>
+          <span className={styles.totalArea}>
+            {props.totalArea}
+            <span className={styles.warehouseCount}>
+              m² ({props.warehouseCount} Kho)
+            </span>
           </span>
         </div>
         <div className={styles.usage}>
@@ -52,6 +77,7 @@ const WarehouseCard: React.FC<WarehouseCardProps> = (props) => {
         <ProgressBar
           percentage={props.usagePercentage}
           color={props.usageColor}
+          totalArea={props.totalArea}
         />
 
         {isExpanded && (
@@ -80,80 +106,8 @@ const WarehouseStatus: React.FC = () => {
   const [viewBy, setViewBy] = useState<string>('amount');
   const [warehouseFilter, setWarehouseFilter] = useState<string>('all');
 
-  const warehouseData: WarehouseCardProps[] = [
-    {
-      title: 'Tổng diện tích kho K92 (A,B)',
-      totalArea: '30,410',
-      warehouseCount: 3,
-      usagePercentage: 25,
-      usageColor: '#D69E2E',
-      details: [
-        { label: 'Chỉ huy kho', value: 'Nguyễn Văn A' },
-        { label: 'Vị trí đóng quân', value: 'A' },
-        { label: 'Tổng diện tích đất (m²)', value: '15362' },
-        { label: 'Tổng số nhà kho', value: '2' },
-        { label: 'Tổng diện tích (m²)', value: '15362' },
-        { label: 'Trữ lượng (tấn)', value: '15362' },
-        { label: 'Đã sử dụng (m²)', value: '15362' },
-        { label: 'Còn trống (m²)', value: '15362' },
-        { label: 'Người quản lý', value: 'Nguyễn Văn A' },
-      ],
-    },
-    {
-      title: 'Tổng diện tích kho K95 (A,B)',
-      totalArea: '2,299',
-      warehouseCount: 2,
-      usagePercentage: 60,
-      usageColor: '#0074D6',
-      details: [
-        { label: 'Chỉ huy kho', value: 'Nguyễn Văn B' },
-        { label: 'Vị trí đóng quân', value: 'A' },
-        { label: 'Tổng diện tích đất (m²)', value: '15362' },
-        { label: 'Tổng số nhà kho', value: '2' },
-        { label: 'Tổng diện tích (m²)', value: '15362' },
-        { label: 'Trữ lượng (tấn)', value: '15362' },
-        { label: 'Đã sử dụng (m²)', value: '15362' },
-        { label: 'Còn trống (m²)', value: '15362' },
-        { label: 'Người quản lý', value: 'Nguyễn Văn B' },
-      ],
-    },
-    {
-      title: 'Tổng diện tích kho K97',
-      totalArea: '47,785',
-      warehouseCount: 1,
-      usagePercentage: 85,
-      usageColor: '#39B89C',
-      details: [
-        { label: 'Chỉ huy kho', value: 'Nguyễn Văn C' },
-        { label: 'Vị trí đóng quân', value: 'A' },
-        { label: 'Tổng diện tích đất (m²)', value: '15362' },
-        { label: 'Tổng số nhà kho', value: '2' },
-        { label: 'Tổng diện tích (m²)', value: '15362' },
-        { label: 'Trữ lượng (tấn)', value: '15362' },
-        { label: 'Đã sử dụng (m²)', value: '15362' },
-        { label: 'Còn trống (m²)', value: '15362' },
-        { label: 'Người quản lý', value: 'Nguyễn Văn C' },
-      ],
-    },
-    {
-      title: 'Tổng diện tích kho K99',
-      totalArea: '31,199',
-      warehouseCount: 1,
-      usagePercentage: 45,
-      usageColor: '#4B96E7',
-      details: [
-        { label: 'Chỉ huy kho', value: 'Nguyễn Văn D' },
-        { label: 'Vị trí đóng quân', value: 'A' },
-        { label: 'Tổng diện tích đất (m²)', value: '15362' },
-        { label: 'Tổng số nhà kho', value: '2' },
-        { label: 'Tổng diện tích (m²)', value: '15362' },
-        { label: 'Trữ lượng (tấn)', value: '15362' },
-        { label: 'Đã sử dụng (m²)', value: '15362' },
-        { label: 'Còn trống (m²)', value: '15362' },
-        { label: 'Người quản lý', value: 'Nguyễn Văn D' },
-      ],
-    },
-  ];
+  // Use centralized warehouse data
+  const warehouseData = warehouseStatusData;
 
   return (
     <div className={styles.warehouseStatusContainer}>
@@ -163,22 +117,13 @@ const WarehouseStatus: React.FC = () => {
           <Select
             value={viewBy}
             onChange={setViewBy}
-            options={[
-              { value: 'amount', label: 'Xem theo thành tiền' },
-              { value: 'quantity', label: 'Xem theo số lượng' },
-              { value: 'area', label: 'Xem theo diện tích' },
-            ]}
+            options={warehouseViewOptions}
             className={styles.selectBox}
           />
           <Select
             value={warehouseFilter}
             onChange={setWarehouseFilter}
-            options={[
-              { value: 'all', label: 'Tất cả các kho' },
-              { value: 'main', label: 'Kho chính' },
-              { value: 'branch', label: 'Kho chi nhánh' },
-              { value: 'temp', label: 'Kho tạm thời' },
-            ]}
+            options={warehouseFilterOptions}
             className={styles.selectBox}
           />
         </div>

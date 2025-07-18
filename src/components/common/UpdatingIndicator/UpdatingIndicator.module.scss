@@ -1,0 +1,165 @@
+.updatingIndicator {
+  position: fixed;
+  z-index: 1000;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  // Animation
+  animation: slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+}
+
+// Position variants
+.topRight {
+  top: 80px;
+  right: 24px;
+}
+
+.topLeft {
+  top: 80px;
+  left: 24px;
+}
+
+.bottomRight {
+  bottom: 24px;
+  right: 24px;
+}
+
+.bottomLeft {
+  bottom: 24px;
+  left: 24px;
+}
+
+.center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  &:hover {
+    transform: translate(-50%, -50%) translateY(-1px);
+  }
+}
+
+// Theme variants
+.primary {
+  background-color: #1890ff;
+}
+
+.success {
+  background-color: #52c41a;
+}
+
+.warning {
+  background-color: #faad14;
+}
+
+.info {
+  background-color: #13c2c2;
+}
+
+.updatingSpinner {
+  :global(.ant-spin-dot) {
+    color: currentColor;
+  }
+}
+
+// Animations
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .updatingIndicator {
+    font-size: 11px;
+    padding: 6px 12px;
+  }
+
+  .topRight {
+    top: 70px;
+    right: 16px;
+  }
+
+  .topLeft {
+    top: 70px;
+    left: 16px;
+  }
+
+  .bottomRight {
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .bottomLeft {
+    bottom: 16px;
+    left: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .updatingIndicator {
+    font-size: 10px;
+    padding: 4px 8px;
+  }
+
+  .topRight {
+    top: 60px;
+    right: 12px;
+  }
+
+  .topLeft {
+    top: 60px;
+    left: 12px;
+  }
+
+  .bottomRight {
+    bottom: 12px;
+    right: 12px;
+  }
+
+  .bottomLeft {
+    bottom: 12px;
+    left: 12px;
+  }
+}

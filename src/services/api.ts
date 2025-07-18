@@ -15,6 +15,7 @@ import type {
   WarehouseOperationsData,
   SummaryTableData,
   InventoryChartsData,
+  WarehouseChartData,
 } from '../types';
 import {
   usersData,
@@ -32,6 +33,7 @@ import {
   warehouseOperationsData,
   summaryTableData,
   inventoryChartsData,
+  createTestWarehouseData,
 } from '../data/dummyData';
 
 // Utility function to simulate API delay
@@ -860,6 +862,15 @@ const inventoryChartsApi = {
       };
     }
 
+    return createApiResponse(data);
+  },
+
+  // Get test warehouse data for charts
+  getTestWarehouseData: async (): Promise<
+    ApiResponse<WarehouseChartData[]>
+  > => {
+    await delay(200); // Shorter delay for test data
+    const data = createTestWarehouseData();
     return createApiResponse(data);
   },
 };

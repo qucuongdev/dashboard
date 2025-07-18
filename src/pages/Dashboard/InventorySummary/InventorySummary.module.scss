@@ -1,0 +1,164 @@
+.inventorySummaryCard {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  //   padding: 24px;
+  margin-bottom: 24px;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #f0f0f0;
+
+    // Mobile responsive
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 600;
+      color: #1f2937;
+      text-align: left;
+
+      @media (max-width: 768px) {
+        text-align: center;
+        width: 100%;
+        margin-bottom: 4px;
+      }
+    }
+
+    // Container for select boxes
+    .selectBoxContainer {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+
+      // Desktop layout: horizontal
+      @media (min-width: 769px) {
+        flex-direction: row;
+        justify-content: flex-end;
+      }
+
+      // Mobile layout: vertical stack
+      @media (max-width: 768px) {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+        align-items: stretch;
+      }
+
+      // Very small mobile: smaller gap
+      @media (max-width: 480px) {
+        gap: 8px;
+      }
+    }
+
+    .selectBox {
+      min-width: 120px;
+
+      // Desktop: fixed width
+      @media (min-width: 769px) {
+        flex-shrink: 0;
+      }
+
+      // Mobile: full width
+      @media (max-width: 768px) {
+        width: 100% !important;
+        min-width: unset;
+        max-width: none;
+      }
+
+      :global(.ant-select-selector) {
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        height: 36px;
+        text-align: left !important;
+        transition: all 0.2s ease;
+
+        :global(.ant-select-selection-item) {
+          line-height: 34px;
+          font-size: 14px;
+          color: #374151;
+          text-align: left !important;
+        }
+
+        :global(.ant-select-selection-placeholder) {
+          line-height: 34px;
+          font-size: 14px;
+          color: #9ca3af;
+          text-align: left !important;
+        }
+      }
+
+      &:hover :global(.ant-select-selector) {
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.1);
+      }
+
+      &:global(.ant-select-focused) :global(.ant-select-selector) {
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+        outline: none;
+      }
+
+      // Dropdown styling
+      &:global(.ant-select-open) :global(.ant-select-selector) {
+        border-color: #3b82f6;
+      }
+    }
+  }
+
+  :global(.ant-card-body) {
+    padding: 16px !important;
+  }
+
+  // Loading container removed - using only UpdatingIndicator
+
+  .summaryTableSection {
+    margin-bottom: 24px;
+    transition: opacity 0.3s ease;
+
+    &.updating {
+      opacity: 0.7;
+    }
+  }
+
+  .inventoryChartsSection {
+    // Remove any bottom margin from the last section
+    margin-bottom: 0;
+    transition: opacity 0.3s ease;
+
+    &.updating {
+      opacity: 0.7;
+    }
+  }
+}
+
+// Mobile responsive
+@media (max-width: 768px) {
+  .inventorySummaryCard {
+    padding: 16px;
+
+    .header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+
+      h2 {
+        text-align: left;
+        font-size: 18px;
+      }
+    }
+
+    :global(.ant-card-body) {
+      padding: 0 !important;
+    }
+  }
+}

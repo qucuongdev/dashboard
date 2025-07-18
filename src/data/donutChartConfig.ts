@@ -53,14 +53,14 @@ export const DONUT_CHART_LEGEND: DonutChartLegendItem[] = [
 export const HORIZONTAL_BAR_CONFIG: HorizontalBarData[] = [
   {
     categoryName: 'Theo quy định',
-    value: '1',
-    percentage: 100,
+    value: '0.5',
+    percentage: 50,
     color: '#599D7B',
   },
   {
     categoryName: 'Hiện tại',
-    value: '0.6',
-    percentage: 60,
-    color: '#EA6565',
+    value: '0.8',
+    percentage: 80,
+    color: '#599D7B',
   },
 ];
